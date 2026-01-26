@@ -1,0 +1,11 @@
+﻿@model List<htmx_test.Domain.Todo.TodoResponse>
+
+<div>
+    @foreach (var todo in Model)
+    {
+        <div>
+            <h4>@todo.Title</h4>
+            <p>@todo.Description</p>
+        </div>
+    }
+</div>
