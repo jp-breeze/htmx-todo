@@ -1,11 +1,50 @@
-﻿@model List<htmx_test.Domain.Todo.TodoResponse>
+﻿@model List<htmx_test.Service.Todo.DateGroupedTodoResponse>
 
 <div>
-    @foreach (var todo in Model)
-    {
-        <div>
-            <h4>@todo.Title</h4>
-            <p>@todo.Description</p>
-        </div>
-    }
+    <div>
+        @foreach (var todoGroup in Model)
+        {
+            <div>
+                <h6>@todoGroup.DueDate.ToString("MMMM d, yyyy")</h6>
+            </div>
+            @foreach (var todo in @todoGroup.TodoList)
+            {
+                <article>
+                    <h5>@todo.Title</h5>
+                    <p>@todo.Description</p>
+                </article>
+            }
+        }
+    </div>
+    <dialog>
+        <article>
+            <header>
+                <button aria-label="Close" rel="prev"></button>
+                <p>
+                    <strong>Create new task</strong>
+                </p>
+            </header>
+            <form>
+                <fieldset>
+                    <input
+                        name="title"
+                        placeholder="Title"
+                        aria-label="Title"
+                        autocomplete="title"/>
+                    <input
+                        name="description"
+                        placeholder="Description"
+                        aria-label="Description"
+                        autocomplete="current-description"/>
+                    <input type="date" name="due-date" aria-label="Date">
+                </fieldset>
+            </form>
+            <footer>
+                <button class="secondary">
+                    Cancel
+                </button>
+                <button>Confirm</button>
+            </footer>
+        </article>
+    </dialog>
 </div>
