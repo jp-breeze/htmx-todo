@@ -1,0 +1,48 @@
+/* Reset margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove default spacing from common elements */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, figure {
+    margin: 0;
+}
+
+/* Remove default padding from form elements */
+button, input, select, textarea {
+    padding: 0;
+    margin: 0;
+}
+
+/* Reset body */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Remove table spacing */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Remove fieldset/legend spacing */
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    padding: 0;
+}

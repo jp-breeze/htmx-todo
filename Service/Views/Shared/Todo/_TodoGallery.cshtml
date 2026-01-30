@@ -1,0 +1,16 @@
+@model List<htmx_test.Service.Todo.DateGroupedTodoResponse>
+
+<div class="todo-gallery">
+    @foreach (var todoGroup in Model)
+    {
+        <div class="todo-group">
+            <div class="todo-group-header">
+                <h6>@todoGroup.DueDate.ToString("MMMM d, yyyy")</h6>
+            </div>
+            @foreach (var todo in todoGroup.TodoList)
+            {
+                @await Html.PartialAsync("Todo/_TodoCard", todo)
+            }
+        </div>
+    }
+</div>

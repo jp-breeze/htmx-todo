@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Todo | @ViewBag.Title</title>
     <script type="importmap"></script>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css"
-    >
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/bundle.css" asp-append-version="true"/>
 </head>
 <body>
 <header>
-    <nav class="container">
+    <nav>
         <ul>
             <li>
                 <strong>
@@ -32,7 +28,7 @@
         </ul>
     </nav>
 </header>
-<div class="container">
+<div>
     <main role="main">
         @RenderBody()
     </main>

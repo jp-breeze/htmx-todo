@@ -1,0 +1,14 @@
+
+body {
+    margin: 0;
+    padding: 8rem;
+    overflow-x: hidden;
+    background: #1c1c1c;
+}
+
+.article-group-header {
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #e5e5e5;
+}

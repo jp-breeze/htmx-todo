@@ -1,0 +1,14 @@
+
+article.todo-card {
+    font-family: "Roboto", sans-serif;
+    color: #e5e5e5;
+    background: #1c1c1c;
+
+    padding: 1rem;
+    border: 1px solid #323232;
+    border-radius: 6px;
+}
+
+article.todo-card > .buttons {
+    
+}

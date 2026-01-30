@@ -1,29 +1,7 @@
 ﻿@model List<htmx_test.Service.Todo.DateGroupedTodoResponse>
 
 <div>
-    <div>
-        @foreach (var todoGroup in Model)
-        {
-            <div>
-                <h6>@todoGroup.DueDate.ToString("MMMM d, yyyy")</h6>
-            </div>
-            @foreach (var todo in @todoGroup.TodoList)
-            {
-                <article>
-                    <div class="grid">
-                        <div>
-                            <h5>@todo.Title</h5>
-                            <p>@todo.Description</p>
-                        </div>
-                        <div role="group">
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    </div>
-                </article>
-            }
-        }
-    </div>
+    @await Html.PartialAsync("Todo/_TodoGallery", Model)
     <dialog>
         <article>
             <header>

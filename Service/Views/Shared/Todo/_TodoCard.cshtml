@@ -1,0 +1,10 @@
+@model htmx_todo.Domain.Todo.TodoResponse
+
+<article class="todo-card">
+    <h4>@Model.Title</h4>
+    <p>@Model.Description</p>
+    <div class="buttons">
+        <button>Edit</button>
+        <button>Delete</button>
+    </div>
+</article>
