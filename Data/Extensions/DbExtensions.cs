@@ -1,4 +1,4 @@
-using htmx_test.Domain.Todo;
+using htmx_todo.Domain.Todo;
 using htmx_todo.Data.Todo;
 using Microsoft.Extensions.DependencyInjection;
 

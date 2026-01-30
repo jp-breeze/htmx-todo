@@ -1,10 +1,10 @@
-using htmx_test.Domain.Todo;
+using htmx_todo.Domain.Todo;
 
 namespace htmx_todo.Data.Todo;
 
 public class TodoRepository : ITodoRepository
 {
-    private readonly List<htmx_test.Domain.Todo.Todo> _db =
+    private readonly List<Domain.Todo.Todo> _db =
     [
         new()
         {
@@ -53,7 +53,7 @@ public class TodoRepository : ITodoRepository
         }
     ];
     
-    public IEnumerable<htmx_test.Domain.Todo.Todo> GetAllAsync(CancellationToken ct)
+    public IEnumerable<Domain.Todo.Todo> GetAllAsync(CancellationToken ct)
     {
         return _db.Where(x => x.IsActive);
     }

@@ -1,6 +1,6 @@
 using Riok.Mapperly.Abstractions;
 
-namespace htmx_test.Domain.Todo;
+namespace htmx_todo.Domain.Todo;
 
 [Mapper]
 public partial class TodoResponseMapper

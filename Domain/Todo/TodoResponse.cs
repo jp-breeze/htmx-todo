@@ -1,4 +1,4 @@
-namespace htmx_test.Domain.Todo;
+namespace htmx_todo.Domain.Todo;
 
 public class TodoResponse
 {
