@@ -10,8 +10,16 @@
             @foreach (var todo in @todoGroup.TodoList)
             {
                 <article>
-                    <h5>@todo.Title</h5>
-                    <p>@todo.Description</p>
+                    <div class="grid">
+                        <div>
+                            <h5>@todo.Title</h5>
+                            <p>@todo.Description</p>
+                        </div>
+                        <div role="group">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </div>
+                    </div>
                 </article>
             }
         }

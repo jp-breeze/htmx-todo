@@ -1,5 +1,5 @@
 using DotNetEnv;
-using htmx_test.Data.Extensions;
+using htmx_todo.Data.Extensions;
 
 Env.Load();
 
@@ -7,7 +7,7 @@ Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddServices(builder.Configuration);
+builder.Services.AddDbExtensions();
 builder.Services.AddControllersWithViews();
 
 // Configure Application

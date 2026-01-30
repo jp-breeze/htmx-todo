@@ -7,5 +7,7 @@ public partial class TodoResponseMapper
 {
     [MapperIgnoreSource("CreatedAt")]
     [MapperIgnoreSource("UpdatedAt")]
-    public partial TodoResponse MapToResponse(Todo todo);
+    private partial TodoResponse MapToResponse(Todo todo);
+
+    public partial List<TodoResponse> MapToResponseList(List<Todo> todo);
 }
