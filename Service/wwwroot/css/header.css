@@ -25,8 +25,14 @@ header > nav {
     gap: 2rem;
 }
 
-.nav-buttons > a {
+.nav-buttons > .create-task {
     font-family: "Roboto", sans-serif;
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--text-secondary);
+
+    padding: 6px;
+    width: 120px;
+    margin-right: 16px;
+    
+    cursor: pointer;
 }

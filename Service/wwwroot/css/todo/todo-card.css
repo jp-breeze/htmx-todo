@@ -46,9 +46,14 @@ button.edit {
     font-weight: 500;
     font-size: 13px;
     color: var(--text-primary);
-    background-color: var(--primary);
+    background-color: var(--edit-primary);
     border: 2px solid var(--secondary);
-    border-radius: 4px
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.edit:hover {
+    background-color: var(--edit-secondary);
 }
 
 button.delete {
@@ -58,5 +63,10 @@ button.delete {
     color: var(--text-primary);
     background-color: var(--delete-primary);
     border: none;
-    border-radius: 4px
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.delete:hover {
+    background-color: var(--delete-secondary);
 }

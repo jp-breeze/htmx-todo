@@ -3,7 +3,13 @@
     --primary: #222831;
     --secondary: #393E46;
     --text-primary: #e5e5e5;
+    --text-secondary: #1c1c1c;
+    
+    --edit-primary: #222831;
+    --edit-secondary: #191d24;
+    
     --delete-primary: #d95950;
+    --delete-secondary: #8c3731;
 }
 
 html, body {
