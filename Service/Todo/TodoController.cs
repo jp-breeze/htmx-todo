@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using htmx_test.Models;
 using htmx_todo.Domain.Todo;
+using htmx_todo.Models;
 
-namespace htmx_test.Service.Todo;
+namespace htmx_todo.Service.Todo;
 
 public class TodoController : Controller
 {

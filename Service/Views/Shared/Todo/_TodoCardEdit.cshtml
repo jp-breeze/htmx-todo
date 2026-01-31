@@ -1,0 +1,29 @@
+@model htmx_todo.Domain.Todo.TodoResponse
+
+<form class="todo-card">
+    <div class="info">
+        <input
+            class="todo-edit"
+            type="text"
+            name="title"
+            value="@Model.Title"
+            />
+        <input
+            class="todo-edit"
+            type="text"
+            name="description"
+            value="@Model.Description"
+            />
+        <input
+            class="todo-edit"
+            type="date"
+            name="due-date"
+            @* min="@DateTimeOffset.UtcNow.Date" *@
+            value="@Model.DueDate.Date"
+            />
+    </div>
+    <div class="buttons">
+        <button class="submit">Save</button>
+        <button class="delete">Cancel</button>
+    </div>
+</form>

@@ -1,4 +1,4 @@
-namespace htmx_test.Models;
+namespace htmx_todo.Models;
 
 public class ErrorViewModel
 {

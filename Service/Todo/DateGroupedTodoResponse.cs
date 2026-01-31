@@ -1,6 +1,6 @@
 using htmx_todo.Domain.Todo;
 
-namespace htmx_test.Service.Todo;
+namespace htmx_todo.Service.Todo;
 
 public class DateGroupedTodoResponse
 {

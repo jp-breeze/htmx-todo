@@ -10,6 +10,9 @@
     
     --delete-primary: #d95950;
     --delete-secondary: #8c3731;
+    
+    --submit-primary: #59ba56;
+    --submit-secondary: #448f42;
 }
 
 html, body {
