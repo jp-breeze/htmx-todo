@@ -1,0 +1,5 @@
+
+header {
+    background: var(--primary);
+    border-bottom: 1px solid var(--secondary);
+}

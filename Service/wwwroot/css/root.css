@@ -1,9 +1,21 @@
 
-body {
+:root {
+    --primary: #222831;
+    --secondary: #393E46;
+    --tertiary: #948979;
+    --quarternary: #DFD0B8;
+    
+    --text-primary: #e5e5e5;;
+}
+
+html, body {
     margin: 0;
-    padding: 8rem;
     overflow-x: hidden;
-    background: #1c1c1c;
+    background: var(--primary)
+}
+
+main {
+    padding: 4rem 6rem;
 }
 
 .article-group-header {
