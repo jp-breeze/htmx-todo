@@ -49,13 +49,13 @@
     Buttons
  */
 
-button.edit {
+.todo-card button {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 13px;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     background-color: var(--edit-primary);
-    border: 2px solid var(--secondary);
+    border: none;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -64,18 +64,18 @@ button.edit:hover {
     background-color: var(--edit-secondary);
 }
 
-button.delete {
+.todo-card button.delete {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 13px;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     background-color: var(--delete-primary);
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button.delete:hover {
+.todo-card button.delete:hover {
     background-color: var(--delete-secondary);
 }
 
