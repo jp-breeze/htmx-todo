@@ -24,6 +24,10 @@ article.todo-card > div.info {
     padding: 24px 0 24px 24px;
 }
 
+article.todo-card > div.info > h3 {
+    padding-bottom: 8px;
+}
+
 article.todo-card > div.buttons {
     display: flex;
     flex-direction: column;
@@ -35,4 +39,24 @@ article.todo-card > div.buttons {
 article.todo-card > div.buttons > button {
     padding: 6px;
     width: 120px;
+}
+
+button.edit {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--text-primary);
+    background-color: var(--primary);
+    border: 2px solid var(--secondary);
+    border-radius: 4px
+}
+
+button.delete {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--text-primary);
+    background-color: var(--delete-primary);
+    border: none;
+    border-radius: 4px
 }

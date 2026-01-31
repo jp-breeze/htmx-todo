@@ -1,20 +1,14 @@
 <header>
     <nav>
-        <ul>
-            <li>
-                <strong>
-                    <a asp-area="" asp-controller="Todo" asp-action="Index" class="contrast">
-                        <h2>
-                            Todo
-                        </h2>
-                    </a>
-                </strong>
-            </li>
-        </ul>
-        <ul>
-            <li><a asp-area="" asp-controller="Todo" asp-action="Index" class="contrast">Home</a></li>
-            <li><a asp-area="" asp-controller="Todo" asp-action="Index" class="contrast">About</a></li>
-            <li><a asp-area="" asp-controller="Todo" asp-action="Index" class="contrast">Contact</a></li>
-        </ul>
+        <div class="nav-brand">
+            <a asp-area="" asp-controller="Todo" asp-action="Index">
+                <h2>HTMX-ToDo</h2>
+            </a>
+        </div>
+        <div class="nav-buttons">
+            <a asp-area="" asp-controller="Todo" asp-action="Index"><h4>Home</h4></a>
+            <a asp-area="" asp-controller="Todo" asp-action="Index"><h4>About</h4></a>
+            <a asp-area="" asp-controller="Todo" asp-action="Index"><h4>Contact</h4></a>
+        </div>
     </nav>
 </header>

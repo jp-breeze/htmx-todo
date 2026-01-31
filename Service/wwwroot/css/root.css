@@ -2,10 +2,8 @@
 :root {
     --primary: #222831;
     --secondary: #393E46;
-    --tertiary: #948979;
-    --quarternary: #DFD0B8;
-    
-    --text-primary: #e5e5e5;;
+    --text-primary: #e5e5e5;
+    --delete-primary: #d95950;
 }
 
 html, body {
@@ -15,7 +13,7 @@ html, body {
 }
 
 main {
-    padding: 4rem 6rem;
+    padding: 3rem 6rem;
 }
 
 .article-group-header {

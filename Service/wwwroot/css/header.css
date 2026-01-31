@@ -3,3 +3,30 @@ header {
     background: var(--primary);
     border-bottom: 1px solid var(--secondary);
 }
+
+header > nav {
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6rem 1.5rem 6rem;
+}
+
+.nav-brand > a {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.nav-buttons > a {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: var(--text-primary);
+}
