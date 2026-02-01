@@ -1,6 +1,6 @@
 @model List<htmx_todo.Service.Todo.DateGroupedTodoResponse>
 
-<div class="todo-gallery">
+<div class="todo-gallery" id="todo-gallery">
     @foreach (var todoGroup in Model)
     {
         <div class="todo-group">

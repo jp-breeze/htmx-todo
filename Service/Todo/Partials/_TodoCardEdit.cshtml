@@ -17,16 +17,15 @@
         <input
             class="todo-edit"
             type="date"
-            name="due-date"
-            @* min="@DateTimeOffset.UtcNow.Date" *@
-            value="@Model.DueDate.Date"
+            name="DueDate"
+            value="@Model.DueDate.ToString("yyyy-MM-dd")"
             />
     </div>
     <div class="buttons">
         <button
             class="submit"
             hx-patch="/todos/@Model.Id"
-            hx-target="#todo-@Model.Id">
+            hx-target="#todo-gallery">
             Save
         </button>
         <button class="delete">Cancel</button>

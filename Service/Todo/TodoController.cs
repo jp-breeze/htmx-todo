@@ -56,10 +56,21 @@ public class TodoController : Controller
         todo.Description = request.Description;
         todo.DueDate = request.DueDate;
         repository.Save(todo);
-
-        var mapped = new TodoResponseMapper().MapToResponse(todo);
         
-        return PartialView("_TodoCard", mapped);
+        var todos = repository.GetAll().ToList();
+        var todoResponses = new TodoResponseMapper().MapToResponseList(todos);
+
+        var groupedTodos = todoResponses
+            .OrderBy(x => x.DueDate)
+            .GroupBy(x => x.DueDate.Date)
+            .Select(x => new DateGroupedTodoResponse
+            {
+                DueDate = new DateTimeOffset(x.Key, TimeSpan.Zero),
+                TodoList = x.ToList()
+            })
+            .ToList();
+        
+        return PartialView("_TodoGallery", groupedTodos);
     }
     
     [HttpPost("/")]
