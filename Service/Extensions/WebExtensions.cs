@@ -1,9 +1,21 @@
+using Microsoft.AspNetCore.Mvc.Razor;
+
 namespace htmx_todo.Service.Extensions;
 
 public static class WebExtensions
 {
     public static void AddWebExtensions(this IServiceCollection services)
     {
+        // Configure custom view location
+        services.Configure<RazorViewEngineOptions>(options =>
+        {
+            options.ViewLocationFormats.Add("/{1}/Views/{0}.cshtml");
+            options.ViewLocationFormats.Add("/{1}/Partials/{0}.cshtml");
+            options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
+            options.ViewLocationFormats.Add("/Views/Shared/Partials/{0}.cshtml");
+        });
+        
+        // Configure CSS location
         services.AddWebOptimizer(pipeline =>
         {
             pipeline.AddCssBundle(

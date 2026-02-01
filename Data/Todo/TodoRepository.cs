@@ -52,9 +52,31 @@ public class TodoRepository : ITodoRepository
             UpdatedAt = DateTimeOffset.UtcNow,
         }
     ];
-    
-    public IEnumerable<Domain.Todo.Todo> GetAllAsync(CancellationToken ct)
+
+    public Domain.Todo.Todo Get(Guid id)
+    {
+        return _db.First(x => x.Id == id && x.IsActive);
+    }
+
+    public IEnumerable<Domain.Todo.Todo> GetAll()
     {
         return _db.Where(x => x.IsActive);
+    }
+
+    public void Save(Domain.Todo.Todo todo)
+    {
+        var existing = _db.Find(x => x.Id == todo.Id && x.IsActive);
+        if (existing == null)
+            throw new Exception($"Could not find Todo with id: {todo.Id}");
+        existing.Title = todo.Title;
+        existing.Description = todo.Description;
+        existing.DueDate = todo.DueDate;
+        existing.UpdatedAt = DateTimeOffset.UtcNow;
+    }
+    
+
+    public void Create(Domain.Todo.Todo todo)
+    {
+        _db.Add(todo);
     }
 }
