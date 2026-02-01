@@ -9,10 +9,8 @@ public static class WebExtensions
         // Configure custom view location
         services.Configure<RazorViewEngineOptions>(options =>
         {
-            options.ViewLocationFormats.Add("/{1}/Views/{0}.cshtml");
-            options.ViewLocationFormats.Add("/{1}/Partials/{0}.cshtml");
             options.ViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-            options.ViewLocationFormats.Add("/Views/Shared/Partials/{0}.cshtml");
+            options.ViewLocationFormats.Add("/Views/{1}/{0}.cshtml");
         });
         
         // Configure CSS location
