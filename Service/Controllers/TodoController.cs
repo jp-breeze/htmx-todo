@@ -1,9 +1,11 @@
 using System.Diagnostics;
+using htmx_todo.Domain.Todos;
+using htmx_todo.Domain.Todos.Requests;
+using htmx_todo.Domain.Todos.Responses;
 using Microsoft.AspNetCore.Mvc;
-using htmx_todo.Domain.Todo;
 using htmx_todo.Models;
 
-namespace htmx_todo.Service.Todo;
+namespace htmx_todo.Service.Controllers;
 
 [Route("todos")]
 public class TodoController : Controller
@@ -82,7 +84,7 @@ public class TodoController : Controller
             request.Description == string.Empty)
             return View("Error.cshtml");
 
-        var todo = new Domain.Todo.Todo
+        var todo = new Todo
         {
             Title = request.Title,
             Description = request.Description,

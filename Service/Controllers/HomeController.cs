@@ -1,8 +1,8 @@
-using htmx_todo.Domain.Todo;
-using htmx_todo.Service.Todo;
+using htmx_todo.Domain.Todos;
+using htmx_todo.Domain.Todos.Responses;
 using Microsoft.AspNetCore.Mvc;
 
-namespace htmx_todo.Service.Home;
+namespace htmx_todo.Service.Controllers;
 
 [Route("home")]
 public class HomeController : Controller

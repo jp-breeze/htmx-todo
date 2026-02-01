@@ -1,10 +1,10 @@
-using htmx_todo.Domain.Todo;
+using htmx_todo.Domain.Todos;
 
-namespace htmx_todo.Data.Todo;
+namespace htmx_todo.Data.Todos;
 
 public class TodoRepository : ITodoRepository
 {
-    private readonly List<Domain.Todo.Todo> _db =
+    private readonly List<Todo> _db =
     [
         new()
         {
@@ -53,17 +53,17 @@ public class TodoRepository : ITodoRepository
         }
     ];
 
-    public Domain.Todo.Todo? Get(Guid id)
+    public Todo? Get(Guid id)
     {
         return _db.FirstOrDefault(x => x.Id == id && x.IsActive);
     }
 
-    public IEnumerable<Domain.Todo.Todo> GetAll()
+    public IEnumerable<Todo> GetAll()
     {
         return _db.Where(x => x.IsActive);
     }
 
-    public void Save(Domain.Todo.Todo todo)
+    public void Save(Todo todo)
     {
         var existing = _db.Find(x => x.Id == todo.Id && x.IsActive);
         if (existing == null)
@@ -75,7 +75,7 @@ public class TodoRepository : ITodoRepository
     }
     
 
-    public void Create(Domain.Todo.Todo todo)
+    public void Create(Todo todo)
     {
         _db.Add(todo);
     }

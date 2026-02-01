@@ -1,4 +1,4 @@
-namespace htmx_todo.Domain.Todo;
+namespace htmx_todo.Domain.Todos;
 
 public interface ITodoRepository
 {

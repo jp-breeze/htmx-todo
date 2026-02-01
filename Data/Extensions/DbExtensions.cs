@@ -1,5 +1,5 @@
-using htmx_todo.Domain.Todo;
-using htmx_todo.Data.Todo;
+using htmx_todo.Data.Todos;
+using htmx_todo.Domain.Todos;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace htmx_todo.Data.Extensions;

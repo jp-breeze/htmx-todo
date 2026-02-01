@@ -1,10 +1,9 @@
-namespace htmx_todo.Domain.Todo;
+namespace htmx_todo.Domain.Todos.Requests;
 
-public class TodoResponse
+public class SaveTodoRequest
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public required Guid Id { get; set; }
     public required string Title { get; set; }
     public required string Description { get; set; }
     public required DateTimeOffset DueDate { get; set; }
-    public bool IsActive { get; set; }
 }

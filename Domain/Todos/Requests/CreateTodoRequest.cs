@@ -1,4 +1,4 @@
-namespace htmx_todo.Service.Todo;
+namespace htmx_todo.Domain.Todos.Requests;
 
 public class CreateTodoRequest
 {
