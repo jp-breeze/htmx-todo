@@ -79,4 +79,12 @@ public class TodoRepository : ITodoRepository
     {
         _db.Add(todo);
     }
+
+    public void Delete(Guid id)
+    {
+        var existing = _db.Find(x => x.Id == id && x.IsActive);
+        if (existing == null)
+            return;
+        existing.IsActive = false;
+    }
 }

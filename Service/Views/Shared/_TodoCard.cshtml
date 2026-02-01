@@ -10,9 +10,15 @@
             class="edit"
             hx-get="/todos/@Model.Id/edit"
             hx-target="#todo-@Model.Id"
-        >
+            >
             Edit
         </button>
-        <button class="delete">Delete</button>
+        <button
+            class="delete"
+            hx-delete="/todos/@Model.Id"
+            hx-target="#todo-gallery"
+            >
+            Delete
+        </button>
     </div>
 </article>

@@ -6,4 +6,5 @@ public interface ITodoRepository
     public IEnumerable<Todo> GetAll();
     public void Save(Todo todo);
     public void Create(Todo todo);
+    public void Delete(Guid id);
 }
