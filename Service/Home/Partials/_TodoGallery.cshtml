@@ -9,7 +9,9 @@
             </div>
             @foreach (var todo in todoGroup.TodoList)
             {
-                @await Html.PartialAsync("_TodoCard", todo)
+                <div id="todo-@todo.Id">
+                    @await Html.PartialAsync("_TodoCard", todo)
+                </div>
             }
         </div>
     }

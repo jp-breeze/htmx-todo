@@ -6,7 +6,13 @@
         <p>@Model.Description</p>
     </div>
     <div class="buttons">
-        <button class="edit">Edit</button>
+        <button
+            class="edit"
+            hx-get="/todos/@Model.Id/edit"
+            hx-target="#todo-@Model.Id"
+        >
+            Edit
+        </button>
         <button class="delete">Delete</button>
     </div>
 </article>

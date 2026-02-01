@@ -14,8 +14,12 @@ public class TodoController : Controller
         Guid id)
     {
         var todo = repository.Get(id);
+
+        if (todo is null)
+            return View("Error");
+        
         var mapped = new TodoResponseMapper().MapToResponse(todo);
-        return PartialView("_TodoCard.cshtml", mapped);
+        return PartialView("_TodoCard", mapped);
     }
 
     [HttpGet("{id:guid}/edit")]
@@ -24,8 +28,12 @@ public class TodoController : Controller
         Guid id)
     {
         var todo = repository.Get(id);
+        
+        if (todo is null)
+            return View("Error");
+        
         var mapped = new TodoResponseMapper().MapToResponse(todo);
-        return PartialView("_TodoCardEdit.cshtml", mapped);
+        return PartialView("_TodoCardEdit", mapped);
     }
 
     [HttpPatch("{id:guid}")]
@@ -37,15 +45,21 @@ public class TodoController : Controller
         if (request.Id == Guid.Empty ||
             request.Title == string.Empty ||
             request.Description == string.Empty)
-            return View("Error.cshtml");
+            return View("Error");
 
         var todo = repository.Get(id);
+        
+        if (todo is null)
+            return View("Error");
+        
         todo.Title = request.Title;
         todo.Description = request.Description;
         todo.DueDate = request.DueDate;
         repository.Save(todo);
+
+        var mapped = new TodoResponseMapper().MapToResponse(todo);
         
-        return PartialView("_TodoCard.cshtml", todo);
+        return PartialView("_TodoCard", mapped);
     }
     
     [HttpPost("/")]
@@ -65,7 +79,7 @@ public class TodoController : Controller
         };
         repository.Create(todo);
         repository.Get(todo.Id);
-        return PartialView("_TodoCard.cshtml", todo);
+        return PartialView("_TodoCard", todo);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

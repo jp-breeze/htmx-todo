@@ -23,7 +23,12 @@
             />
     </div>
     <div class="buttons">
-        <button class="submit">Save</button>
+        <button
+            class="submit"
+            hx-patch="/todos/@Model.Id"
+            hx-target="#todo-@Model.Id">
+            Save
+        </button>
         <button class="delete">Cancel</button>
     </div>
 </form>

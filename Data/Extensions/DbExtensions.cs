@@ -8,6 +8,7 @@ public static class DbExtensions
 {
     public static void AddDbExtensions(this IServiceCollection services)
     {
-        services.AddScoped<ITodoRepository, TodoRepository>();
+        // Only adding as a singleton because Todos are stored in-memory within this repository.
+        services.AddSingleton<ITodoRepository, TodoRepository>();
     }
 }

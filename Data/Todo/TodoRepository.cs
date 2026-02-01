@@ -53,9 +53,9 @@ public class TodoRepository : ITodoRepository
         }
     ];
 
-    public Domain.Todo.Todo Get(Guid id)
+    public Domain.Todo.Todo? Get(Guid id)
     {
-        return _db.First(x => x.Id == id && x.IsActive);
+        return _db.FirstOrDefault(x => x.Id == id && x.IsActive);
     }
 
     public IEnumerable<Domain.Todo.Todo> GetAll()

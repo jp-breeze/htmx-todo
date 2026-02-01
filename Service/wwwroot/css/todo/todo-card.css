@@ -98,10 +98,10 @@ button.submit:hover {
     background-color: var(--submit-secondary);
 }
 
-.todo-card input {
+input.todo-edit {
     width: 20rem;
     height: 2rem;
-    background-color: var(--edit-primary);
+    background-color: var(--primary);
     border: 1px solid var(--secondary);
     border-radius: 4px;
     box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -112,4 +112,9 @@ button.submit:hover {
     font-weight: 500;
     
     padding: 0.5rem;
+}
+
+input.todo-edit:focus {
+    outline: none;
+    border: 1px solid var(--text-primary);
 }
