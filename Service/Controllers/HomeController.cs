@@ -7,6 +7,7 @@ namespace htmx_todo.Service.Controllers;
 [Route("home")]
 public class HomeController : Controller
 {
+    [HttpGet("")]
     public IActionResult Index(
         [FromServices] ITodoRepository repository)
     {

@@ -30,10 +30,8 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.UseWebOptimizer();
 
-app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Todo}/{action=Index}/{id?}")
+app.MapGet("/", () => Results.Redirect("/home"));
+app.MapDefaultControllerRoute()
     .WithStaticAssets();
-
 
 app.Run();
