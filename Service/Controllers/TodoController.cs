@@ -38,6 +38,13 @@ public class TodoController : Controller
         return PartialView("_TodoCardEdit", mapped);
     }
 
+    [HttpGet("create")]
+    public IActionResult GetCreate()
+    {
+        Console.WriteLine("HERE");
+        return PartialView("_TodoCardEdit");
+    }
+
     [HttpPut("{id:guid}")]
     public IActionResult SaveEdit(
         [FromServices] ITodoRepository repository,
@@ -75,25 +82,39 @@ public class TodoController : Controller
         return PartialView("_TodoGallery", groupedTodos);
     }
     
-    // [HttpPost("/")]
-    // public IActionResult Create(
-    //     [FromServices] ITodoRepository repository,
-    //     CreateTodoRequest request)
-    // {
-    //     if (request.Title == string.Empty ||
-    //         request.Description == string.Empty)
-    //         return View("Error.cshtml");
-    //
-    //     var todo = new Todo
-    //     {
-    //         Title = request.Title,
-    //         Description = request.Description,
-    //         DueDate = request.DueDate
-    //     };
-    //     repository.Create(todo);
-    //     repository.Get(todo.Id);
-    //     return PartialView("_TodoCard", todo);
-    // }
+    [HttpPost("")]
+    public IActionResult Create(
+        [FromServices] ITodoRepository repository,
+        CreateTodoRequest request)
+    {
+        if (request.Title == string.Empty ||
+            request.Description == string.Empty)
+            return View("Error");
+    
+        var todo = new Todo
+        {
+            Title = request.Title,
+            Description = request.Description,
+            DueDate = request.DueDate
+        };
+        repository.Create(todo);
+        
+        var todos = repository.GetAll().ToList();
+        var todoResponses = new TodoResponseMapper().MapToResponseList(todos);
+
+        var groupedTodos = todoResponses
+            .OrderBy(x => x.DueDate)
+            .GroupBy(x => x.DueDate.Date)
+            .Select(x => new DateGroupedTodoResponse
+            {
+                DueDate = new DateTimeOffset(x.Key, TimeSpan.Zero),
+                TodoList = x.ToList()
+            })
+            .ToList();
+        
+        
+        return PartialView("_TodoGallery", groupedTodos);
+    }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(

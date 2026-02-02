@@ -1,4 +1,4 @@
-@model htmx_todo.Domain.Todos.Responses.TodoResponse
+@model htmx_todo.Domain.Todos.Responses.TodoResponse?
 
 <form class="todo-card">
     <div class="info">
@@ -6,28 +6,40 @@
             class="todo-edit"
             type="text"
             name="title"
-            value="@Model.Title"
+            value="@Model?.Title"
             />
         <input
             class="todo-edit"
             type="text"
             name="description"
-            value="@Model.Description"
+            value="@Model?.Description"
             />
         <input
             class="todo-edit"
             type="date"
             name="DueDate"
-            value="@Model.DueDate.ToString("yyyy-MM-dd")"
+            value="@Model?.DueDate.ToString("yyyy-MM-dd")"
             />
     </div>
     <div class="buttons">
-        <button
-            class="submit"
-            hx-patch="/todos/@Model.Id"
-            hx-target="#todo-gallery">
-            Save
-        </button>
+        @if (Model != null)
+        {
+            <button
+                class="submit"
+                hx-patch="/todos/@Model.Id"
+                hx-target="#todo-gallery">
+                Save
+            </button>
+        }
+        else
+        {
+            <button
+                class="submit"
+                hx-post="/todos"
+                hx-target="#todo-gallery">
+                Save
+            </button>
+        }
         <button class="delete">Cancel</button>
     </div>
 </form>
