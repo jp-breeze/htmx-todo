@@ -1,8 +1,8 @@
-@model List<htmx_todo.Domain.Todos.Responses.DateGroupedTodoResponse>
+@model htmx_todo.Domain.Todos.Responses.TodoGalleryResponse
 
 <div class="todo-gallery" id="todo-gallery">
     <div id="todo-create-wrapper"></div>
-    @foreach (var todoGroup in Model)
+    @foreach (var todoGroup in Model.Groups)
     {
         <div class="todo-group">
             <div class="todo-group-header">

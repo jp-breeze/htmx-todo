@@ -48,9 +48,11 @@ public class TodoController : Controller
     [HttpPut("{id:guid}")]
     public IActionResult SaveEdit(
         [FromServices] ITodoRepository repository,
+        [FromServices] TodoService service,
         Guid id,
         SaveTodoRequest request)
     {
+        Console.WriteLine(id);
         if (request.Id == Guid.Empty ||
             request.Title == string.Empty ||
             request.Description == string.Empty)
@@ -65,26 +67,14 @@ public class TodoController : Controller
         todo.Description = request.Description;
         todo.DueDate = request.DueDate;
         repository.Save(todo);
-        
-        var todos = repository.GetAll().ToList();
-        var todoResponses = new TodoResponseMapper().MapToResponseList(todos);
 
-        var groupedTodos = todoResponses
-            .OrderBy(x => x.DueDate)
-            .GroupBy(x => x.DueDate.Date)
-            .Select(x => new DateGroupedTodoResponse
-            {
-                DueDate = new DateTimeOffset(x.Key, TimeSpan.Zero),
-                TodoList = x.ToList()
-            })
-            .ToList();
-        
-        return PartialView("_TodoGallery", groupedTodos);
+        return PartialView("_TodoGallery", service.GetGalleryContent());
     }
     
     [HttpPost("")]
     public IActionResult Create(
         [FromServices] ITodoRepository repository,
+        [FromServices] TodoService service,
         CreateTodoRequest request)
     {
         if (request.Title == string.Empty ||
@@ -99,26 +89,13 @@ public class TodoController : Controller
         };
         repository.Create(todo);
         
-        var todos = repository.GetAll().ToList();
-        var todoResponses = new TodoResponseMapper().MapToResponseList(todos);
-
-        var groupedTodos = todoResponses
-            .OrderBy(x => x.DueDate)
-            .GroupBy(x => x.DueDate.Date)
-            .Select(x => new DateGroupedTodoResponse
-            {
-                DueDate = new DateTimeOffset(x.Key, TimeSpan.Zero),
-                TodoList = x.ToList()
-            })
-            .ToList();
-        
-        
-        return PartialView("_TodoGallery", groupedTodos);
+        return PartialView("_TodoGallery", service.GetGalleryContent());
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(
         [FromServices] ITodoRepository repository,
+        [FromServices] TodoService service,
         Guid id)
     {
         var todo = repository.Get(id);
@@ -126,21 +103,8 @@ public class TodoController : Controller
             return View("Error");
         
         repository.Delete(todo.Id);
-        
-        var todos = repository.GetAll().ToList();
-        var todoResponses = new TodoResponseMapper().MapToResponseList(todos);
 
-        var groupedTodos = todoResponses
-            .OrderBy(x => x.DueDate)
-            .GroupBy(x => x.DueDate.Date)
-            .Select(x => new DateGroupedTodoResponse
-            {
-                DueDate = new DateTimeOffset(x.Key, TimeSpan.Zero),
-                TodoList = x.ToList()
-            })
-            .ToList();
-
-        return PartialView("_TodoGallery", groupedTodos);
+        return PartialView("_TodoGallery", service.GetGalleryContent());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
